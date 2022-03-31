@@ -1,4 +1,4 @@
-package com.springBajo8.springBajo8;
+package co.sofka.ferreteria;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,5 +27,4 @@ public class SpringBajo8Application {
 		SpringApplication.run(SpringBajo8Application.class, args);
 		System.out.println("Hola Mundo Loco");
 	}
-
 }

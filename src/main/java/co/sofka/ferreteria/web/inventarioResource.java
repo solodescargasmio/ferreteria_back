@@ -1,15 +1,17 @@
-package com.springBajo8.springBajo8.web;
+package co.sofka.ferreteria.web;
 
 
-import com.springBajo8.springBajo8.domain.facturaDTO;
-import com.springBajo8.springBajo8.domain.inventarioDTO;
-import com.springBajo8.springBajo8.domain.volanteDTO;
-import com.springBajo8.springBajo8.service.IfacturaService;
-import com.springBajo8.springBajo8.service.IinventarioService;
-import com.springBajo8.springBajo8.service.IvolanteService;
+import co.sofka.ferreteria.domain.inventarioDTO;
+import co.sofka.ferreteria.domain.volanteDTO;
+import co.sofka.ferreteria.service.IfacturaService;
+import co.sofka.ferreteria.service.IinventarioService;
+import co.sofka.ferreteria.service.IvolanteService;
+import co.sofka.ferreteria.domain.facturaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -147,9 +149,20 @@ public class inventarioResource {
     @PostMapping("/volante")
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<volanteDTO> save(@RequestBody volanteDTO vDTO) {
-       // System.out.println(vDTO.getListaInventario().stream().);
         return this.ivolanteService.save(vDTO);
     }
 
+    @PutMapping(path="/volante/{id}", consumes = (MediaType.APPLICATION_JSON_VALUE),produces = (MediaType.APPLICATION_JSON_VALUE))
+    private Mono<ResponseEntity<volanteDTO>> updateCancelado(@PathVariable("id") String id, @RequestBody volanteDTO vDTO) {
+        System.out.println("Dentro resource");
+        return this.ivolanteService.update(id,vDTO)
+                .flatMap(vDTO1->Mono.just(ResponseEntity.ok(vDTO1)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+    @DeleteMapping("/volante/{id}")
+    private Mono<Void> delete(@PathVariable("id") String id) {
+        return this.ivolanteService.delete(id);
+
+    }
 
 }

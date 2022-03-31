@@ -1,4 +1,4 @@
-package com.springBajo8.springBajo8.domain;
+package co.sofka.ferreteria.domain;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package com.springBajo8.springBajo8.service.impl;
+package co.sofka.ferreteria.service.impl;
 
 
-import com.springBajo8.springBajo8.domain.inventarioDTO;
-import com.springBajo8.springBajo8.repository.IinventarioRepository;
-import com.springBajo8.springBajo8.service.IinventarioService;
+import co.sofka.ferreteria.repository.IinventarioRepository;
+import co.sofka.ferreteria.service.IinventarioService;
+import co.sofka.ferreteria.domain.inventarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -22,6 +22,11 @@ public class inventarioServiceImpl implements IinventarioService {
 
     public Mono<inventarioDTO> save(inventarioDTO iDTO) {
         return iinventarioRepository.save(iDTO);
+    }
+
+    @Override
+    public Mono<Void> delete(String id) {
+        return this.iinventarioRepository.deleteById(id);
     }
 
 }

@@ -1,7 +1,6 @@
-package com.springBajo8.springBajo8.service;
+package co.sofka.ferreteria.service;
 
-import com.springBajo8.springBajo8.domain.facturaDTO;
-import com.springBajo8.springBajo8.domain.inventarioDTO;
+import co.sofka.ferreteria.domain.facturaDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

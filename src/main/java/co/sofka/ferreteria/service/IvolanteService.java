@@ -1,6 +1,6 @@
-package com.springBajo8.springBajo8.service;
+package co.sofka.ferreteria.service;
 
-import com.springBajo8.springBajo8.domain.volanteDTO;
+import co.sofka.ferreteria.domain.volanteDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -8,5 +8,8 @@ public interface IvolanteService {
     Flux<volanteDTO> findAll();
 
     Mono<volanteDTO> save(volanteDTO vDTO);
+
+    Mono<volanteDTO> update(String id, volanteDTO vDTO);
+    Mono<Void> delete(String id);
 
 }

@@ -1,6 +1,6 @@
-package com.springBajo8.springBajo8.repository;
+package co.sofka.ferreteria.repository;
 
-import com.springBajo8.springBajo8.domain.volanteDTO;
+import co.sofka.ferreteria.domain.volanteDTO;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 

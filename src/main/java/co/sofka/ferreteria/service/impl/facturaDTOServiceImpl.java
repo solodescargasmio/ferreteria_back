@@ -1,8 +1,8 @@
-package com.springBajo8.springBajo8.service.impl;
+package co.sofka.ferreteria.service.impl;
 
-import com.springBajo8.springBajo8.domain.facturaDTO;
-import com.springBajo8.springBajo8.repository.IfacturaDTORepository;
-import com.springBajo8.springBajo8.service.IfacturaService;
+import co.sofka.ferreteria.repository.IfacturaDTORepository;
+import co.sofka.ferreteria.service.IfacturaService;
+import co.sofka.ferreteria.domain.facturaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
