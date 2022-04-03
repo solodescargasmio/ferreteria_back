@@ -25,7 +25,7 @@ class volanteDTOServiceTest {
     private IvolanteDTORepository vRepository;
 
     @InjectMocks
-    private IvolanteService vService;
+    private volanteDTOService vService;
 
     private volanteDTO vDTO;
     private inventarioDTO iDTO;
