@@ -109,6 +109,10 @@ public class inventarioResource {
     private Flux<controlDTO> findAllControl() {
         return this.iControlService.findAll();
     }
+    @GetMapping(value = "/controlDTO/{id}")
+    private Mono<controlDTO> findByIdControl(@PathVariable("id") String id) {
+        return this.iControlService.findById(id);
+    }
 
 
 
