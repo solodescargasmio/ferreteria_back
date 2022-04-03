@@ -120,6 +120,13 @@ public class inventarioResource {
         return this.iControlService.save(cDTO);
     }
 
+    @PutMapping(path="/cotrol/{id}", consumes = (MediaType.APPLICATION_JSON_VALUE),produces = (MediaType.APPLICATION_JSON_VALUE))
+    private Mono<ResponseEntity<controlDTO>> updateControl(@PathVariable("id") String id, @RequestBody controlDTO cDTO) {
+        return this.iControlService.update(id,cDTO)
+                .flatMap(cDTO1->Mono.just(ResponseEntity.ok(cDTO1)))
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
 
 
 
