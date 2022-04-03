@@ -19,7 +19,7 @@ public class SpringBajo8Application {
 	public Docket citasApi(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.springBajo8.springBajo8.web"))
+				.apis(RequestHandlerSelectors.basePackage("co.sofka.ferreteria.web"))
 				.paths(PathSelectors.any())
 				.build();
 	}
