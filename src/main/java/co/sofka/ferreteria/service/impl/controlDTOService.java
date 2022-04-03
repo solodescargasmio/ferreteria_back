@@ -20,7 +20,21 @@ public class controlDTOService implements IControlService {
     }
 
     @Override
+    public Mono<controlDTO> findById(String id) {
+        return icontrolDTORepository.findByIdItem(id);
+    }
+
+    @Override
     public Mono<controlDTO> save(controlDTO cDTO) {
         return icontrolDTORepository.save(cDTO);
+    }
+    @Override
+    public Mono<controlDTO> update(String id,controlDTO cDTO) {
+
+        return this.icontrolDTORepository.findByIdItem(id)
+                .flatMap(cDTO1->{
+                    cDTO1.setId(id);
+                return save(cDTO1);
+                }).switchIfEmpty(Mono.empty());
     }
 }

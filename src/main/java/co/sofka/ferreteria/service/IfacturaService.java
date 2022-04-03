@@ -8,4 +8,6 @@ public interface IfacturaService {
     Flux<facturaDTO> findAll();
 
     Mono<facturaDTO> save(facturaDTO fDTO);
+
+    Mono<facturaDTO> findById(String id);
 }

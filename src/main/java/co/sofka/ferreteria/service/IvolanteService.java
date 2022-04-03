@@ -7,6 +7,8 @@ import reactor.core.publisher.Mono;
 public interface IvolanteService {
     Flux<volanteDTO> findAll();
 
+    Mono<volanteDTO> findById(String id);
+
     Mono<volanteDTO> save(volanteDTO vDTO);
 
     Mono<volanteDTO> update(String id, volanteDTO vDTO);

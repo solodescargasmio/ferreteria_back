@@ -35,18 +35,14 @@ public class volanteDTOService implements IvolanteService {
     public Flux<volanteDTO> findAll() {
         return ivolanteDTORepository.findAll();
     }
-/*   @Override
-    public Mono<citasDTOReactiva> update(String id, citasDTOReactiva citasDTOReactiva) {
-        return this.IcitasReactivaRepository.findById(id)
-                .flatMap(citasDTOReactiva1 -> {
-                    citasDTOReactiva.setId(id);
-                    return save(citasDTOReactiva);
-                })
-                .switchIfEmpty(Mono.empty());
-    }*/
+
+    @Override
+    public Mono<volanteDTO> findById(String id) {
+        return ivolanteDTORepository.findById(id);
+    }
+
     @Override
     public Mono<volanteDTO> update(String id, volanteDTO vDTO){
-        System.out.println("Dentro service");
         return this.ivolanteDTORepository.findById(id)
                 .flatMap(volanteDTO1 -> {
                     volanteDTO1.setId(id);

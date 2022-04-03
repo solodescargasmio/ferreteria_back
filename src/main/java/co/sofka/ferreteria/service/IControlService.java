@@ -6,7 +6,8 @@ import reactor.core.publisher.Mono;
 
 public interface IControlService {
     Flux<controlDTO> findAll();
-
+    Mono<controlDTO> findById(String id);
     Mono<controlDTO> save(controlDTO con);
+    Mono<controlDTO> update(String id,controlDTO con);
 
 }
