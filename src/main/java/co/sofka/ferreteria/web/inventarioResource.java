@@ -105,6 +105,11 @@ public class inventarioResource {
         return this.ivolanteService.delete(id);
 
     }
+    @GetMapping(value = "/control")
+    private Flux<controlDTO> findAllControl() {
+        return this.iControlService.findAll();
+    }
+
 
 
 
