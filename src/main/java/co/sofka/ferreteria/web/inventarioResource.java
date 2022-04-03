@@ -114,6 +114,13 @@ public class inventarioResource {
         return this.iControlService.findById(id);
     }
 
+    @PostMapping("/controlDTO")
+    @ResponseStatus(HttpStatus.CREATED)
+    private Mono<controlDTO> save(@RequestBody controlDTO cDTO) {
+        return this.iControlService.save(cDTO);
+    }
+
+
 
 
 
