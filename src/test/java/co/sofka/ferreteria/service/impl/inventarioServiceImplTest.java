@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 
@@ -39,6 +40,9 @@ class inventarioServiceImplTest {
     }
     @Test
     void findAll() {
+        Mockito.when(iRepository.findAll()).thenReturn(Flux.just(iDTO));
+        assertNotNull(iService.findAll());
+
     }
 
     @Test
