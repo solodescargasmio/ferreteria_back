@@ -109,12 +109,12 @@ public class inventarioResource {
     private Flux<controlDTO> findAllControl() {
         return this.iControlService.findAll();
     }
-    @GetMapping(value = "/controlDTO/{id}")
+    @GetMapping(value = "/control/{id}")
     private Mono<controlDTO> findByIdControl(@PathVariable("id") String id) {
         return this.iControlService.findById(id);
     }
 
-    @PostMapping("/controlDTO")
+    @PostMapping("/control")
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<controlDTO> save(@RequestBody controlDTO cDTO) {
         return this.iControlService.save(cDTO);
@@ -127,7 +127,11 @@ public class inventarioResource {
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
+    @DeleteMapping("/control/{id}")
+    private Mono<Void> deleteControl(@PathVariable("id") String id) {
+        return this.iControlService.delete(id);
 
+    }
 
 
 

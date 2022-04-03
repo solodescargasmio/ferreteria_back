@@ -28,6 +28,12 @@ public class controlDTOService implements IControlService {
     public Mono<controlDTO> save(controlDTO cDTO) {
         return icontrolDTORepository.save(cDTO);
     }
+
+    @Override
+    public Mono<Void> delete(String id) {
+        return icontrolDTORepository.deleteById(id);
+    }
+
     @Override
     public Mono<controlDTO> update(String id,controlDTO cDTO) {
 
