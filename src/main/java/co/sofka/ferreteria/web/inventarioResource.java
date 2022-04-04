@@ -19,6 +19,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@CrossOrigin("*")
 public class inventarioResource {
 
     @Autowired
@@ -82,6 +83,7 @@ public class inventarioResource {
         return this.ivolanteService.findAll();
     }
 
+    
     @GetMapping(value = "/volante/{id}")
     private Mono<volanteDTO> findByIdVolante(@PathVariable("id") String id) {
 
@@ -105,6 +107,8 @@ public class inventarioResource {
         return this.ivolanteService.delete(id);
 
     }
+
+
     @GetMapping(value = "/control")
     private Flux<controlDTO> findAllControl() {
         return this.iControlService.findAll();
@@ -128,7 +132,7 @@ public class inventarioResource {
     }
 
     @DeleteMapping("/control/{id}")
-    private Mono<Void> deleteControl(@PathVariable("id") String id) {
+    private Mono<controlDTO> deleteControl(@PathVariable("id") String id) {
         return this.iControlService.delete(id);
 
     }

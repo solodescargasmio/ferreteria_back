@@ -8,7 +8,7 @@ public interface IControlService {
     Flux<controlDTO> findAll();
     Mono<controlDTO> findById(String id);
     Mono<controlDTO> save(controlDTO con);
-    Mono<Void> delete(String id);
+    Mono<controlDTO> delete(String id);
     Mono<controlDTO> update(String id,controlDTO con);
 
 }

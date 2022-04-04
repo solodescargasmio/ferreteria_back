@@ -30,8 +30,9 @@ public class controlDTOService implements IControlService {
     }
 
     @Override
-    public Mono<Void> delete(String id) {
-        return icontrolDTORepository.deleteById(id);
+    public Mono<controlDTO> delete(String id) {
+        return icontrolDTORepository.findById(id)
+                .flatMap(c->this.icontrolDTORepository.deleteById(c.getId()).thenReturn(c));
     }
 
     @Override
